@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { mediaQueries } from "../../utils/mediaQueries";
 import { px2vw } from "../../utils/px2vw";
 
 export const ProductCardStyle = styled.div`
@@ -16,5 +15,5 @@ export const ProductCardStyle = styled.div`
   ::-webkit-scrollbar {
     width: 0px;
   }
-  
+
   `;

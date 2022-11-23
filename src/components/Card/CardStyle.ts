@@ -6,7 +6,7 @@ export const CardStyle = styled.div`
   margin-right: ${px2vw(36)};
   display: grid;
 
-h3 {
+  h3 {
     color: #171520;
     font-size: ${px2vw(16)};
   }
@@ -43,21 +43,20 @@ export const ImageBag = styled.img`
   margin-bottom: ${px2vw(16)};
 
   ${mediaQueries.mobile} {
-    width: ${px2vw(580)};
+    width: ${px2vw(530)};
   }
   ${mediaQueries.desktop} {
     width: ${px2vw(315)};
   }
 `;
 
-
 export const Flex = styled.div`
   display: flex;
   justify-content: space-between;
 
   ${mediaQueries.mobile} {
-  img{
-    width: ${px2vw(58)};
+    img {
+      width: ${px2vw(58)};
+    }
   }
-}
 `;
