@@ -12,6 +12,7 @@ import ImagemBag4 from "../../assets/img/image-bag-4.png";
 import { Icons } from "../Icons/Icons";
 
 export function ProductCard() {
+  
   return (
     <ProductCardStyle>
       <CardStyle>
@@ -42,6 +43,16 @@ export function ProductCard() {
         </Flex>
         <h4>Brown Strap Bag</h4>
         <span>$57.00</span>
+      </CardStyle>
+
+      <CardStyle>
+        <ImageBag src={ImagemBag4} />
+        <Flex>
+        <h3>Boujee</h3>
+        <Icons icon={"wishlistFillFalse"} />
+        </Flex>
+        <h4>Black Bag</h4>
+        <span>$56.49</span>
       </CardStyle>
 
       <CardStyle>

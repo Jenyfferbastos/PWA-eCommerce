@@ -6,6 +6,8 @@ export const ProductCardStyle = styled.div`
   display: flex;
   line-height: ${px2vw(20)};
   margin: ${px2vw(30)};
+  cursor: grab;
+  
 
   width: 95vw;
   overflow-y: hidden;
@@ -54,7 +56,7 @@ export const ImageBag = styled.img`
     width: ${px2vw(580)};
   }
   ${mediaQueries.desktop} {
-    width: ${px2vw(323)};
+    width: ${px2vw(315)};
   }
 `;
 
@@ -67,7 +69,9 @@ export const Flex = styled.div`
   display: flex;
   justify-content: space-between;
 
+  ${mediaQueries.mobile} {
   img{
     width: ${px2vw(58)};
   }
+}
 `;
