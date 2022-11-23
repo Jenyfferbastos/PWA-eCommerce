@@ -1,69 +1,21 @@
 import "./ProductCardStyle";
-import {
-  CardStyle,
-  Flex,
-  ImageBag,
-  ProductCardStyle,
-} from "./ProductCardStyle";
+import { Card } from "../Card/Card";
 import ImagemBag1 from "../../assets/img/image-bag-1.png";
 import ImagemBag2 from "../../assets/img/image-bag-2.png";
 import ImagemBag3 from "../../assets/img/image-bag-3.png";
 import ImagemBag4 from "../../assets/img/image-bag-4.png";
-import { Icons } from "../Icons/Icons";
+import { ProductCardStyle } from "./ProductCardStyle";
 
 export function ProductCard() {
-  
   return (
     <ProductCardStyle>
-      <CardStyle>
-        <ImageBag src={ImagemBag1} />
-        <Flex>
-          <h3>Grande</h3>
-        <Icons icon={"wishlistFillFalse"} />
-        </Flex>
-        <h4>Blossom Pouch</h4>
-        <span>$39.49</span>
-      </CardStyle>
+      <Card nameBag="Grande" descritionBag="Blossom Pouch" valueBag="$39.49" img={ImagemBag1} />
 
-      <CardStyle>
-        <ImageBag src={ImagemBag2} />
-        <Flex>
-          <h3>Coach</h3>
-          <Icons icon={"wishlistFillFalse"} />
-        </Flex>
-        <h4>Leather Coach Bag</h4>
-        <span>$54.69</span>
-      </CardStyle>
+      <Card nameBag="Coach" descritionBag="Leather Coach Bag" valueBag="$54.69" img={ImagemBag2} />
 
-      <CardStyle>
-        <ImageBag src={ImagemBag3} />
-        <Flex>
-          <h3>Remus</h3>
-          <Icons icon={"wishlistFillFalse"} />
-        </Flex>
-        <h4>Brown Strap Bag</h4>
-        <span>$57.00</span>
-      </CardStyle>
+      <Card nameBag="Remus" descritionBag="Brown Strap Bag" valueBag="$57.00" img={ImagemBag3} />
 
-      <CardStyle>
-        <ImageBag src={ImagemBag4} />
-        <Flex>
-        <h3>Boujee</h3>
-        <Icons icon={"wishlistFillFalse"} />
-        </Flex>
-        <h4>Black Bag</h4>
-        <span>$56.49</span>
-      </CardStyle>
-
-      <CardStyle>
-        <ImageBag src={ImagemBag4} />
-        <Flex>
-        <h3>Boujee</h3>
-        <Icons icon={"wishlistFillFalse"} />
-        </Flex>
-        <h4>Black Bag</h4>
-        <span>$56.49</span>
-      </CardStyle>
+      <Card nameBag="Boujee" descritionBag="Black Bag" valueBag="$56.49" img={ImagemBag4} />
     </ProductCardStyle>
   );
 }
