@@ -3,6 +3,7 @@ import { HandpickedCollections } from "../../components/HandpickedCollections/Ha
 import { Header } from "../../components/Header/Header";
 import { MainCarousel } from "../../components/MainBanner/MainBanner";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
+import { ShopByBrands } from "../../components/ShopByBrands/ShopByBrands";
 import { TopCategories } from "../../components/TopCategories/TopCategories";
 
 export function Home() {
@@ -15,6 +16,7 @@ export function Home() {
       <TopCategories />
       <ProductCard />
       <HandpickedCollections />
+      <ShopByBrands />
     </>
   );
 }
