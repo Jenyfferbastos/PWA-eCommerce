@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { mediaQueries } from "../../utils/mediaQueries";
 import { px2vw } from "../../utils/px2vw";
 
-export const CardStyle = styled.div`
+export const ModelProductCardStyle = styled.div`
   margin-right: ${px2vw(36)};
   display: grid;
 

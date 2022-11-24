@@ -1,17 +1,17 @@
 import { Icons } from "../Icons/Icons";
-import { CardStyle, Flex, ImageBag } from "./CardStyle";
+import { ModelProductCardStyle, Flex, ImageBag } from "./ModelProductCardStyle";
 
-export interface CardProps{
+export interface ModelProductCardProps{
   img: string;
   nameBag: string;
   descritionBag: string;
   valueBag: string;
 }
 
-export function Card({nameBag, descritionBag, valueBag, img}: CardProps) {
+export function ModelProductCard({nameBag, descritionBag, valueBag, img}: ModelProductCardProps) {
   
   return (
-    <CardStyle>
+    <ModelProductCardStyle>
     <ImageBag src={img} />
     <Flex>
       <h3>{nameBag}</h3>
@@ -19,6 +19,6 @@ export function Card({nameBag, descritionBag, valueBag, img}: CardProps) {
     </Flex>
     <h4>{descritionBag}</h4>
     <span>{valueBag}</span>
-  </CardStyle>
+  </ModelProductCardStyle>
   )
 }
