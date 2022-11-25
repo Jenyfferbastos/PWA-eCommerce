@@ -1,4 +1,6 @@
 import { BannerAlert } from "../../components/BannerAlert/BannerAlert";
+import { Cta } from "../../components/CTA/Cta";
+import { EndBannerHome } from "../../components/EndBannerHome/EndBannerHome";
 import { HandpickedCollections } from "../../components/HandpickedCollections/HandpickedCollections";
 import { Header } from "../../components/Header/Header";
 import { MainCarousel } from "../../components/MainBanner/MainBanner";
@@ -17,6 +19,8 @@ export function Home() {
       <ProductCard />
       <HandpickedCollections />
       <ShopByBrands />
+      <Cta />
+      <EndBannerHome />
     </>
   );
 }
