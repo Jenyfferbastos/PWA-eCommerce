@@ -22,6 +22,7 @@ import Edit from '../../../assets/img/generalIconsImages/edit.svg';
 import Ellipses from '../../../assets/img/generalIconsImages/ellipses.svg';
 import Filter from '../../../assets/img/generalIconsImages/filter.svg';
 import Location from '../../../assets/img/generalIconsImages/location.svg';
+import LocationWhite from '../../../assets/img/generalIconsImages/locationWhite.svg';
 import Logout from '../../../assets/img/generalIconsImages/logout.svg';
 import Menu from '../../../assets/img/generalIconsImages/menu.svg';
 import Notification from '../../../assets/img/generalIconsImages/notification.svg';
@@ -65,6 +66,7 @@ export const generalIcons = {
   ['Ellipses']: Ellipses,
   ['Filter']: Filter,
   ['Location']: Location,
+  ['LocationWhite']: LocationWhite,
   ['Logout']: Logout,
   ['Menu']: Menu,
   ['Notification']: Notification,
