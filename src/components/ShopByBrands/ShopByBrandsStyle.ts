@@ -2,6 +2,16 @@ import styled from "styled-components";
 import { mediaQueries } from "../../utils/mediaQueries";
 import { px2vw } from "../../utils/px2vw";
 
+export const TitleStyle = styled.h2`
+  margin-left: ${px2vw(30)};
+  margin-top: ${px2vw(30)};
+  ${mediaQueries.desktop} {
+  font-size: ${px2vw(32)};
+  }
+  ${mediaQueries.mobile} {
+  font-size: ${px2vw(66)};
+  }
+`;
 export const ShopByBrandsStyle = styled.div`
   ${mediaQueries.desktop} {
     display: grid;
