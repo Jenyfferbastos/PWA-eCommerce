@@ -2,19 +2,26 @@ import styled from "styled-components";
 import { mediaQueries } from "../../utils/mediaQueries";
 
 export const HeaderStyle = styled.div`
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 10vh;
+
   ${mediaQueries.mobile} {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
- 
+    padding: 10px;
   }
   ${mediaQueries.desktop} {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -64,8 +71,9 @@ export const Navigation = styled.div`
   ${mediaQueries.desktop} {
     display: flex;
   }
-  `
+`;
 export const LogoStyle = styled.div`
+  margin-left: 20px;
   ${mediaQueries.mobile} {
     display: none;
   }
@@ -90,16 +98,16 @@ export const LinkStyle = styled.div`
 `;
 
 export const Search = styled.div`
-  ${mediaQueries.desktop}{
+  ${mediaQueries.desktop} {
     display: flex;
     justify-content: space-between;
     width: 40vw;
     margin-left: 100px;
   }
-  ${mediaQueries.mobile}{
+  ${mediaQueries.mobile} {
     display: none;
   }
-`
+`;
 export const SearchStyle = styled.div`
   ${mediaQueries.mobile} {
     display: none;
@@ -107,19 +115,20 @@ export const SearchStyle = styled.div`
   ${mediaQueries.desktop} {
     display: flex;
     border-radius: 2px;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
     width: 26vw;
     align-items: center;
     padding: 8px;
+    margin-bottom: 10px;
 
-    input{
+    input {
       border: none;
-      background-color: #F1F1F1;
+      background-color: #f1f1f1;
       width: 300px;
       margin-left: 5px;
       outline: none;
     }
-    input::placeholder{
+    input::placeholder {
       color: #626262;
       font-size: 14px;
       font-weight: 600;
