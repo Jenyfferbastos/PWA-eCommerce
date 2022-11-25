@@ -1,5 +1,9 @@
 import AddToHomeScreen from '../../../assets/img/generalIconsImages/add-to-homescreen.svg';
 import Arrow from '../../../assets/img/generalIconsImages/arrow.svg';
+import ArrowWhite from '../../../assets/img/generalIconsImages/arrowWhite.svg';
+import ArrowBlue from '../../../assets/img/generalIconsImages/Vector 2 (Stroke).svg';
+import ArrowPink from '../../../assets/img/generalIconsImages/Vector 1 (Stroke).svg';
+import ArrowRed from '../../../assets/img/generalIconsImages/Vector 1.svg';
 import AutoFill from '../../../assets/img/generalIconsImages/auto-fill.svg';
 import BookOpen from '../../../assets/img/generalIconsImages/book-open.svg';
 import ChevronBottom from '../../../assets/img/generalIconsImages/chevron-bottom.svg';
@@ -35,9 +39,14 @@ import Sort from '../../../assets/img/generalIconsImages/sort.svg';
 import Star from '../../../assets/img/generalIconsImages/star.svg';
 import ViewSmilar from '../../../assets/img/generalIconsImages/view-smilar.svg';
 
+
 export const generalIcons = {
   ['AddToHomeScreen']: AddToHomeScreen,
   ['Arrow']: Arrow,
+  ['ArrowWhite']: ArrowWhite,
+  ['ArrowPink']: ArrowPink,
+  ['ArrowBlue']: ArrowBlue,
+  ['ArrowRed']: ArrowRed,
   ['AutoFill']: AutoFill,
   ['BookOpen']: BookOpen,
   ['ChevronBottom']: ChevronBottom,
