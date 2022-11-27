@@ -41,7 +41,7 @@ export function Header() {
         </LogoStyle>
 
         <LinkStyle>
-          <Link to={"/"}>Handbags</Link>
+          <Link to={"/Handbags"}>Handbags</Link>
           <Link to={"/"}>Watches</Link>
           <Link to={"/"}>Skincare</Link>
           <Link to={"/"}>Jewellery</Link>
