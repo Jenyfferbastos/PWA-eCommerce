@@ -35,7 +35,18 @@ export const MyCartsStyle = styled.div`
   .containerOrderSummary {
     width: ${px2vw(400)};
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    .buttons{
+    display: flex;
+    justify-content: space-between;
+
+    a{
+      text-decoration: none;
+    }
+  }
+
   }
   .couponCode {
     margin-left: ${px2vw(60)};
@@ -56,5 +67,5 @@ export const MyCartsStyle = styled.div`
       justify-content: space-between;
       text-align: start;
     }
-  }
-`;
+  }`;
+

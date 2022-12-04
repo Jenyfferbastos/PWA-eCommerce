@@ -8,6 +8,10 @@ import { Cupom } from "../../components/Cupom/Cupom";
 import { CodeCheck } from "../../components/CodeCheck/CodeCheck";
 import { useState } from "react";
 import { Icons } from "../../components/Icons/Icons";
+import { OrderSummaryStyle } from "../../components/OrderSummary/OrderSummaryStyle";
+import { ButtonTrueBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonTrueBack";
+import { Link } from "react-router-dom";
+import { ButtonFalseBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonFalseBack";
 
 export function MyCarts() {
   const [show, setShow] = useState(false);
@@ -46,14 +50,20 @@ export function MyCarts() {
           />
         </div>
         <div className="containerOrderSummary">
-          <OrderSummary />
+            <OrderSummary />
+            <div className="buttons">
+              <Link to="/Checkout">
+                <ButtonTrueBack name={"Place Order"} icon={""} />
+              </Link>
+              <ButtonFalseBack name={"Continue Shopping"} icon={""} />
+            </div>
         </div>
       </div>
       <div className="couponCode">
-      <button className="selectCoupon" onClick={() => setShow(!show)}>
-        Apply Coupon Code <Icons icon="ChevronBottom" />
-      </button>
-      {show && <CodeCheck placeholder={"Apply Coupon Code"} />}
+        <button className="selectCoupon" onClick={() => setShow(!show)}>
+          Apply Coupon Code <Icons icon="ChevronBottom" />
+        </button>
+        {show && <CodeCheck placeholder={"Apply Coupon Code"} />}
       </div>
       <Footer />
     </MyCartsStyle>
