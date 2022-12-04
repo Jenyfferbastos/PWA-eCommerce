@@ -4,39 +4,33 @@ import { RadioCheckbox } from "../RadioCheckbox/RadioCheckbox";
 import { SelectCheckboxStyle } from "./SelectCheckboxStyle";
 
 export interface SelectCheckboxProps {
+  Name: Array<string>;
   TextButton: string;
   Icon: string;
 }
 
-export function SelectCheckbox({ TextButton, Icon }: SelectCheckboxProps) {
+export function SelectCheckbox({
+  TextButton,
+  Icon,
+  Name,
+}: SelectCheckboxProps) {
   const [show, setShow] = useState(false);
-
-  const item = {
-    colors: [
-      "Blue",
-      "Maroon Red",
-      "Crimson Red",
-      "Seinna Pink",
-      "Teal",
-      "Aquamarine",
-      "Off-White",
-      "Muave Orange",
-    ],
-    
-    sizes: [
-      "small", 
-      "medium", 
-      "large"
-    ]
-  };
-  
 
   return (
     <SelectCheckboxStyle>
       <button type="button" onClick={() => setShow(!show)}>
         {TextButton} <Icons icon={Icon} />
       </button>
-      {show && item.sizes.map((value) => <RadioCheckbox Text={value} />)}
+      {show && [
+        <RadioCheckbox Text={Name[0]} />,
+        <RadioCheckbox Text={Name[1]} />,
+        <RadioCheckbox Text={Name[2]} />,
+        <RadioCheckbox Text={Name[3]} />,
+        <RadioCheckbox Text={Name[4]} />,
+        <RadioCheckbox Text={Name[5]} />,
+        <RadioCheckbox Text={Name[6]} />,
+        <RadioCheckbox Text={Name[7]} />,
+      ]}
     </SelectCheckboxStyle>
   );
 }
