@@ -1,7 +1,6 @@
 import { ProductPage } from "../../components/ProductPage/ProductPage";
 import ImageCoach from "../../assets/img/image-bag-2.png";
 import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
 
 export function Coach(){
   return(
