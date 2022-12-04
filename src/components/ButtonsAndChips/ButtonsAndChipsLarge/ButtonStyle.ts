@@ -6,7 +6,6 @@ export const ButtonStyle = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px 120px;
   width: ${px2vw(350)};
   height: ${px2vw(38)};
   background: #1b4b66;

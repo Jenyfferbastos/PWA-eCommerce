@@ -13,7 +13,7 @@ export const ButtonLargeStyle = styled.div`
     justify-content: center;
     align-items: center;
     width: ${px2vw(328)};
-    padding: 8px 70px 8px 70px;
+    padding: ${px2vw(10)};
     cursor: pointer;
 
     img{

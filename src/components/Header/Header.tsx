@@ -119,9 +119,11 @@ export function Header() {
               <p>$111.38</p>
             </div>
           </div>
+          <div className="containerEndModal">
           <CodeCheck placeholder={"Apply Coupon Code"} />
           <Link to='/MyCarts'><Button name={"Place Order"} icon={""} /></Link>
           <Link to='/*' className="linkContinueShopping">Continue Shopping</Link>
+          </div>
           </div>
         </div>
       )}

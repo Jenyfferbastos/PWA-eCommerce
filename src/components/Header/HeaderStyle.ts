@@ -20,10 +20,7 @@ export const HeaderStyle = styled.div`
     .overlay {
       width: 100vw;
       height: 100vh;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       position: fixed;
     }
 
@@ -34,19 +31,19 @@ export const HeaderStyle = styled.div`
       position: absolute;
       top: 50%;
       left: 85%;
-      width: 394px;
-      height: 670px;
+      width:  ${px2vw(394)};
+      height:  ${px2vw(670)};
       transform: translate(-50%, -50%);
       background: #ffffff;
-      padding: 10px;
+      padding:  ${px2vw(10)};
     }
 
     .backModal {
       position: absolute;
       width: ${px2vw(100)};
-      top: 10px;
-      left: 10px;
-      padding: 5px 7px;
+      top:  ${px2vw(10)};
+      left: ${px2vw(10)};
+      padding: ${px2vw(7)};
       background-color: transparent;
       border: none;
       font-size: ${px2vw(20)};
@@ -81,6 +78,11 @@ export const HeaderStyle = styled.div`
         font-weight: 500;
       }
     }
+    .containerEndModal{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .linkContinueShopping {
       font-style: normal;
       font-weight: 600;
@@ -104,7 +106,7 @@ export const HeaderStyle = styled.div`
     grid-template-columns: 1fr 1fr;
     align-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: ${px2vw(20)};
   }
 `;
 
@@ -168,14 +170,14 @@ export const LinkStyle = styled.div`
   ${mediaQueries.desktop} {
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
+    margin-left: ${px2vw(20)};
 
     a {
       text-decoration: none;
       color: #171520;
-      font-size: 14px;
+      font-size: ${px2vw(14)};
       font-weight: 600;
-      margin-left: 15px;
+      margin-left: ${px2vw(15)};
     }
   }
 `;
@@ -185,7 +187,7 @@ export const Search = styled.div`
     display: flex;
     justify-content: space-between;
     width: 40vw;
-    margin-left: 100px;
+    margin-left: ${px2vw(100)};
   }
   ${mediaQueries.mobile} {
     display: none;
@@ -201,19 +203,19 @@ export const SearchStyle = styled.div`
     background-color: #f1f1f1;
     width: 26vw;
     align-items: center;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: ${px2vw(8)};
+    margin-bottom: ${px2vw(10)};
 
     input {
       border: none;
       background-color: #f1f1f1;
-      width: 300px;
-      margin-left: 5px;
+      width: ${px2vw(300)};
+      margin-left: ${px2vw(5)};
       outline: none;
     }
     input::placeholder {
       color: #626262;
-      font-size: 14px;
+      font-size:${px2vw(14)};
       font-weight: 600;
     }
   }
