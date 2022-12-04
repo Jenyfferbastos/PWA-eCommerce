@@ -10,6 +10,9 @@ export const FooterStyle = styled.div`
     justify-content: space-evenly;
     flex-direction: row;
   }
+  ${mediaQueries.mobile} {
+    display: none;
+  }
 `;
 
 export const ContainerTextStyle = styled.div`
@@ -19,7 +22,7 @@ export const ContainerTextStyle = styled.div`
     line-height: ${px2vw(26)};
     margin: ${px2vw(42)};
 
-    h1 {
+    .linkTitle {
       color: #ffffff;
       font-size: ${px2vw(16)};
       font-weight: 500;

@@ -5,7 +5,7 @@ import {
   ContainerStyle,
   ContainerTextStyle,
   FooterStyle,
-  LocationStyle
+  LocationStyle,
 } from "./FooterStyle";
 import LogoInstagram from "../../assets/img/insta logo.png";
 import LogoYoutube from "../../assets/img/youtube.png";
@@ -13,14 +13,13 @@ import LogoTwitter from "../../assets/img/twitter.png";
 import LogoFacebook from "../../assets/img/fb logo.png";
 import { Icons } from "../Icons/Icons";
 
-
 export function Footer() {
   return (
     <FooterStyle>
       <ContainerLinks />
       <ContainerTextStyle>
-        <Link to={"/*"}>
-          <h1>Shop by Category</h1>
+        <Link to={"/*"} className="linkTitle">
+          Shop by Category
         </Link>
         <Link to={"/*"}>Skincare</Link>
         <Link to={"/*"}>Personal Care</Link>
@@ -31,8 +30,8 @@ export function Footer() {
         <Link to={"/*"}>Jewellery</Link>
       </ContainerTextStyle>
       <ContainerTextStyle>
-        <Link to={"/*"}>
-          <h1>About</h1>
+        <Link to={"/*"} className="linkTitle">
+          About
         </Link>
         <Link to={"/*"}>Contact Us</Link>
         <Link to={"/*"}>About Us</Link>
@@ -40,8 +39,8 @@ export function Footer() {
         <Link to={"/*"}>Press</Link>
       </ContainerTextStyle>
       <ContainerTextStyle>
-        <Link to={"/*"}>
-          <h1>Policy</h1>
+        <Link to={"/*"} className="linkTitle">
+        Policy
         </Link>
         <Link to={"/*"}>Return Policy</Link>
         <Link to={"/*"}>Terms of Use</Link>
@@ -52,17 +51,17 @@ export function Footer() {
       </ContainerTextStyle>
       <ContainerLinks />
       <ContainerStyle>
-      <ContainerLogos>
-        <img src={LogoFacebook} />
-        <img src={LogoInstagram} />
-        <img src={LogoTwitter} />
-        <img src={LogoYoutube} />
-      </ContainerLogos>
-      <LocationStyle>
-        <Icons icon={'LocationWhite'} />
-        <h3>United States</h3>
-      </LocationStyle>
-      <p>© 2021 | Cora Leviene All Rights Reserved</p>
+        <ContainerLogos>
+          <img src={LogoFacebook} />
+          <img src={LogoInstagram} />
+          <img src={LogoTwitter} />
+          <img src={LogoYoutube} />
+        </ContainerLogos>
+        <LocationStyle>
+          <Icons icon={"LocationWhite"} />
+          <h3>United States</h3>
+        </LocationStyle>
+        <p>© 2021 | Cora Leviene All Rights Reserved</p>
       </ContainerStyle>
     </FooterStyle>
   );
