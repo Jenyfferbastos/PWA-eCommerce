@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ProductsStyle } from "./ProductsStyle";
+import { CardVertical, ProductsStyle } from "./ProductsStyle";
 
 export interface ProductsProps {
   image: string;
@@ -22,7 +22,7 @@ export function Products({
 }: ProductsProps) {
   return (
     <ProductsStyle>
-      <div className="containerMain">
+      <CardVertical>
       <div className="imageContainer">
         <img src={image} />
       </div>
@@ -31,7 +31,7 @@ export function Products({
         <p>{descriptionProduct}</p>
         <p>{quantityProduct}</p>
       </div>
-      </div>
+      </CardVertical>
       <div className="containerFlex">
       <div className="priceContainer">
         <p>{priceProduct}</p>

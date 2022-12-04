@@ -17,16 +17,6 @@ export const ProductsStyle = styled.div`
     font-weight: 500;
     color: #171520;
   }
-  .containerMain{
-    display: flex;
-  }
-  .informationProduct{
-    font-size: ${px2vw(16)};
-    font-weight: 400;
-    color: #626262;
-    display: grid;
-    margin-left: ${px2vw(16)};
-  }
 
   .containerFlex{
     width: ${px2vw(250)};
@@ -53,5 +43,18 @@ export const ProductsStyle = styled.div`
     .linkRemove{
       color: #B00020;
     }
+  }
+`;
+export const CardVertical = styled.div`
+display: flex;
+  .containerMain{
+    display: flex;
+  }
+  .informationProduct{
+    font-size: ${px2vw(16)};
+    font-weight: 400;
+    color: #626262;
+    display: grid;
+    margin-left: ${px2vw(16)};
   }
 `;
