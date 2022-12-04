@@ -6,17 +6,17 @@ import ImagemBag1 from "../../assets/img/image-bag-1.png";
 import ImagemBag2 from "../../assets/img/image-bag-2.png";
 import ImagemBag3 from "../../assets/img/image-bag-3.png";
 import ImagemBag4 from "../../assets/img/image-bag-4.png";
-import { ContainerProductListing, ProductListing } from "./Handbags";
-import { Flex } from "../../components/ProductCard/ModelProductCardStyle";
+import { ContainerProductListing, HandbagsStyle, ProductListing } from "./Handbags";
 import { Footer } from "../../components/Footer/Footer";
 import { ListingOptions } from "../../components/ListingOptions/ListingOptions";
 
 export function Handbags(){
   return(
-    <>
+    <HandbagsStyle>
     <Header />
     <BannerHandbags />
-    <Flex>
+    <h1>Handbags</h1>
+    <div className="containerMain">
       <div className="containerCheckbox">
     <SelectCheckbox  TextButton={"Size"} Icon={"Plus"} Name={['S','M','L','XL', 'XXL', '3XL', '4XL', '5XL']}  />
     <SelectCheckbox  TextButton={"Color"} Icon={"Plus"} Name={['Blue','Maroon Red','Crimson Red','Seinna Pink', 'Teal', 'Aquamarine', 'Off-White', 'Muave Orange']}  />
@@ -36,8 +36,8 @@ export function Handbags(){
     <CardHorizontal img={ImagemBag3} nameBag={"Grande"} descritionBag={"Blossom Pouch"} valueBeforeBag={"$39.49"} valueAfterBag={"$78.66"} valueDiscountBag={"50% OFF"} rating={"43 Ratings"} />
     </ProductListing>
     </ContainerProductListing>
-    </Flex>
+    </div>
     <Footer />
-    </>
+    </HandbagsStyle>
   )
 }
