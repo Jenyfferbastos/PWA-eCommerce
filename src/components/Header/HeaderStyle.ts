@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mediaQueries } from "../../utils/mediaQueries";
+import { px2vw } from "../../utils/px2vw";
 
 export const HeaderStyle = styled.div`
   position: fixed;
@@ -10,6 +11,88 @@ export const HeaderStyle = styled.div`
   width: 100vw;
   height: 10vh;
 
+  ${mediaQueries.desktop} {
+    body.activeModal {
+      overflow-y: hidden;
+    }
+
+    .modal,
+    .overlay {
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+    }
+
+    .overlay {
+      background: rgba(49, 49, 49, 0.8);
+    }
+    .modalContent {
+      position: absolute;
+      top: 50%;
+      left: 85%;
+      width: 394px;
+      height: 670px;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 10px;
+    }
+
+    .backModal {
+      position: absolute;
+      width: ${px2vw(100)};
+      top: 10px;
+      left: 10px;
+      padding: 5px 7px;
+      background-color: transparent;
+      border: none;
+      font-size: ${px2vw(20)};
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #1b4b66;
+    }
+    .orderDetails {
+      display: flex;
+      flex-direction: column;
+      margin-top: ${px2vw(24)};
+      justify-content: space-between;
+      height: ${px2vw(70)};
+      margin-bottom: ${px2vw(20)};
+
+      .subtotal,
+      .tax,
+      .total {
+        display: flex;
+        justify-content: space-between;
+        color: #171520;
+      }
+      .subtotal,
+      .tax {
+        font-size: ${px2vw(14)};
+        font-weight: 400;
+      }
+      .total {
+        font-size: ${px2vw(16)};
+        font-weight: 500;
+      }
+    }
+    .linkContinueShopping {
+      font-style: normal;
+      font-weight: 600;
+      font-size: ${px2vw(14)};
+      text-decoration-line: underline;
+      color: #1b4b66;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
   ${mediaQueries.mobile} {
     display: flex;
     justify-content: space-between;

@@ -12,9 +12,27 @@ import {
   SearchStyle,
 } from "./HeaderStyle";
 import Logo from "../../assets/img/logo.svg";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { VerticalCard } from "../VerticalCard/VerticalCard";
+import ImageBag2 from "../../assets/img/image-bag-2.png";
+import { RatingsAndStepper } from "../RatingsAndStepper/RatingsAndStepper";
+import { CodeCheck } from "../CodeCheck/CodeCheck";
+import { Button } from "../ButtonsAndChips/ButtonsAndChipsLarge/Button";
 
 export function Header() {
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("activeModal");
+  } else {
+    document.body.classList.remove("activeModal");
+  }
+
   return (
     <HeaderStyle>
       <Home>
@@ -62,11 +80,51 @@ export function Header() {
           <button>
             <Icons icon={"Profile"} />
           </button>
-          <button>
+          <button onClick={toggleModal} className="btn-modal">
             <Icons icon={"bagFillFalse"} />
           </button>
         </ButtonsDesktop>
       </Search>
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modalContent">
+            <button className="backModal" onClick={toggleModal}>
+              <Icons icon="Del" />
+              Back
+            </button>
+            <VerticalCard
+              imageProduct={ImageBag2}
+              nameProduct={"Coach"}
+              desciptionProduct={"Leather Coach Bag"}
+              valueProduct={"$54.69"}
+            />
+            <VerticalCard
+              imageProduct={ImageBag2}
+              nameProduct={"Coach"}
+              desciptionProduct={"Leather Coach Bag"}
+              valueProduct={"$54.69"}
+            />
+          <div className="orderDetails">
+            <div className="subtotal">
+              <p>Subtotal:</p>
+              <p>$109.38</p>
+            </div>
+            <div className="tax">
+              <p>Tax:</p>
+              <p>$2.00</p>
+            </div>
+            <div className="total">
+              <p>Total:</p>
+              <p>$111.38</p>
+            </div>
+          </div>
+          <CodeCheck placeholder={"Apply Coupon Code"} />
+          <Link to='/MyCarts'><Button name={"Place Order"} icon={""} /></Link>
+          <Link to='/*' className="linkContinueShopping">Continue Shopping</Link>
+          </div>
+        </div>
+      )}
     </HeaderStyle>
   );
 }
