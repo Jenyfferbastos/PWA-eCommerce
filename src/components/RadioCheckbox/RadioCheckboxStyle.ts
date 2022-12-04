@@ -1,14 +1,18 @@
 import styled from "styled-components";
+import { px2vw } from "../../utils/px2vw";
 
 export const RadioCheckboxStyle = styled.div`
 .container {
+  font-size:  ${px2vw(16)};
+  font-weight: 500;
+  line-height:  ${px2vw(20)};
+  width: ${px2vw(200)};
   display: block;
   position: relative;
-  padding-left: 28px;
+  padding-left: ${px2vw(28)};
   color: #626262;
-  margin-bottom: 12px;
+  margin-bottom: ${px2vw(12)};
   cursor: pointer;
-  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -28,11 +32,11 @@ export const RadioCheckboxStyle = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: ${px2vw(17)};
+  width: ${px2vw(17)};
   background-color: #FFFFFF;
   border: solid 2px #626262;
-  border-radius: 2px;
+  border-radius: ${px2vw(2)};
 }
 
 .container:hover input ~ .checkmark {
@@ -54,10 +58,10 @@ export const RadioCheckboxStyle = styled.div`
 }
 
 .container .checkmark:after {
-  left: 5px;
-  top: 3px;
-  width: 4px;
-  height: 9px;
+  left: ${px2vw(5)};
+  top: ${px2vw(2)};
+  width: ${px2vw(4)};
+  height: ${px2vw(8)};
   border: solid white;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
