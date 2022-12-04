@@ -31,7 +31,6 @@ export const CodeCheckStyle = styled.div`
     background-color: #f1f1f1;
     height: ${px2vw(56)};
     width: ${px2vw(80)};
-    margin-right: ${px2vw(56)};
     cursor: pointer;
     color: #1b4b66;
     font-size: ${px2vw(14)};

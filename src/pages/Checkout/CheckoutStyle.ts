@@ -38,7 +38,7 @@ export const CheckoutStyle = styled.div`
     display: grid;
     grid-template-columns: 1fr 2fr;
     width: 45vw;
-    gap: 30px;
+    gap:  ${px2vw(30)};
     font-size: ${px2vw(16)};
     font-weight: 500;
     color: #171520;
@@ -48,7 +48,6 @@ export const CheckoutStyle = styled.div`
       border: none;
       display: flex;
       align-items: center;
-      gap: 12;
       background: #f1f1f1;
       border-radius: ${px2vw(4)};
       height: ${px2vw(52)};
@@ -63,20 +62,20 @@ export const CheckoutStyle = styled.div`
     .inputEnterAddress,
     .inputEnterCity {
       width: ${px2vw(287)};
-      padding: 16px 12px 16px 16px;
+      padding:  ${px2vw(14)};
     }
     .inputEnterState,
     .inputEnterPinCode {
       width: ${px2vw(391)};
-      padding: 16px 12px 16px 16px;
+      padding:  ${px2vw(14)};
     }
     .inputEnterNumberArea {
       width: ${px2vw(80)};
-      padding: 16px 12px 16px 16px;
+      padding:  ${px2vw(14)};
     }
     .inputEnterNumber {
       width: ${px2vw(300)};
-      padding: 16px 12px 16px 16px;
+      padding:  ${px2vw(14)};
     }
 
     .containerNumber {
@@ -104,7 +103,7 @@ export const CheckoutStyle = styled.div`
       justify-content: center;
       text-align: center;
       border: 1px solid #e3e3e3;
-      border-radius: 12px;
+      border-radius:  ${px2vw(12)};
       width: ${px2vw(165)};
       height: ${px2vw(125)};
       padding-bottom: ${px2vw(20)};
@@ -144,7 +143,7 @@ export const CheckoutStyle = styled.div`
 
       .imageLogo {
         border: 1px solid #dcdcdc;
-        border-radius: 4px;
+        border-radius:  ${px2vw(4)};
         width: ${px2vw(70)};
         height: ${px2vw(70)};
         display: flex;
@@ -164,12 +163,11 @@ export const CheckoutStyle = styled.div`
     border: none;
     font-size: ${px2vw(14)};
     font-weight: 600;
-    padding: 10px 8px;
-    gap: 8px;
-    width: 136px;
-    height: 44px;
+    padding:  ${px2vw(8)};
+    width: ${px2vw(136)};
+    height:  ${px2vw(44)};
     background: #1b4b66;
-    border-radius: 8px;
+    border-radius:  ${px2vw(8)};
     color: #FFFFFF;
     cursor: pointer;
   }
