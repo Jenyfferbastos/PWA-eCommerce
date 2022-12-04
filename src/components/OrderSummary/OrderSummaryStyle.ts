@@ -10,7 +10,6 @@ export const OrderSummaryStyle = styled.div`
     align-items: center;
     line-height: ${px2vw(30)};
   }
-  
   h2{
     font-size: ${px2vw(20)};
     font-weight: 600;
@@ -30,13 +29,5 @@ export const OrderSummaryStyle = styled.div`
   }
   .containerPrice{
     text-align: right;
-  }
-  .buttons{
-    display: flex;
-    justify-content: space-between;
-
-    a{
-      text-decoration: none;
-    }
   }
 `;
