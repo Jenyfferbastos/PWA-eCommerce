@@ -10,6 +10,11 @@ export const CheckoutStyle = styled.div`
     font-size: ${px2vw(34)};
     font-weight: 600;
   }
+  .containerCheckout{
+    display: flex;
+    justify-content: space-between;
+    margin: ${px2vw(20)};
+  }
 
   .addressContainer {
     margin-bottom: ${px2vw(57)};
@@ -105,16 +110,24 @@ export const CheckoutStyle = styled.div`
       border: 1px solid #e3e3e3;
       border-radius:  ${px2vw(12)};
       width: ${px2vw(165)};
-      height: ${px2vw(125)};
+      height: 20vh;
       padding-bottom: ${px2vw(20)};
       padding-right: ${px2vw(20)};
 
       .containerLogo {
+        margin-top: 1vw;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        img {
+        font-size: ${px2vw(16)};
+
+        .image {
+          margin-bottom: ${px2vw(10)};
+          width: 8vw;
+        }
+        .imageCard{
+          width: 4vw;
           margin-bottom: ${px2vw(10)};
         }
       }
@@ -140,6 +153,8 @@ export const CheckoutStyle = styled.div`
     .containerLogoSecondary {
       display: flex;
       align-items: center;
+      font-size: ${px2vw(16)};
+      padding: ${px2vw(6)};;
 
       .imageLogo {
         border: 1px solid #dcdcdc;
@@ -149,6 +164,11 @@ export const CheckoutStyle = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-right: ${px2vw(10)};
+
+        img{
+          width: ${px2vw(50)};;
+        }
       }
     }
   }
@@ -176,4 +196,44 @@ export const CheckoutStyle = styled.div`
     color: #1b4b66;
   }
 }
+.orderSummaryContainer{
+  display: flex;
+  flex-direction: column;
+
+  .titleOrderSummary{
+    font-size: ${px2vw(20)};
+    font-weight: 600;
+    color: #13101E;
+    padding-bottom: ${px2vw(10)};
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: ${px2vw(37)};
+  }
+}
 `;
+export const OrderSummaryProducts = styled.div`
+ display: flex;
+ margin-bottom: ${px2vw(41)};
+
+.imageContainer{
+  img{
+    width: ${px2vw(70)};
+    border-radius: ${px2vw(8)};
+  }
+}
+  .informationProduct{
+    font-size: ${px2vw(16)};
+    display: grid;
+    margin-left: ${px2vw(16)};
+
+    h2{
+      color:#171520;
+      font-size: ${px2vw(16)};
+      font-weight: 500;
+    }
+
+    p{
+      color: #626262;
+      font-weight: 400;
+    }
+  }
+  `;
