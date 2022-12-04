@@ -7,7 +7,6 @@ export const ProductCardStyle = styled.div`
   line-height: ${px2vw(20)};
   margin: ${px2vw(30)};
   cursor: grab;
-  
 
   width: 95vw;
   overflow-y: hidden;
@@ -15,6 +14,9 @@ export const ProductCardStyle = styled.div`
 
   ::-webkit-scrollbar {
     width: 0px;
+  }
+  a{
+    text-decoration: none;
   }
   `;
 

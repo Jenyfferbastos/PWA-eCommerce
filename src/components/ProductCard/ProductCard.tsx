@@ -5,6 +5,7 @@ import ImagemBag3 from "../../assets/img/image-bag-3.png";
 import ImagemBag4 from "../../assets/img/image-bag-4.png";
 import { ContainerNavStyle, ProductCardStyle } from "./ProductCardStyle";
 import { Icons } from "../Icons/Icons";
+import { Link } from "react-router-dom";
 
 export function ProductCard() {
   return (
@@ -17,13 +18,13 @@ export function ProductCard() {
     </ContainerNavStyle>
     
     <ProductCardStyle>
-      <ModelProductCard nameBag="Grande" descritionBag="Blossom Pouch" valueBag="$39.49" img={ImagemBag1} />
+      <Link to="/Handbags/Grande"><ModelProductCard nameBag="Grande" descritionBag="Blossom Pouch" valueBag="$39.49" img={ImagemBag1} /></Link>
 
-      <ModelProductCard nameBag="Coach" descritionBag="Leather Coach Bag" valueBag="$54.69" img={ImagemBag2} />
+      <Link to="/Handbags/Coach"><ModelProductCard nameBag="Coach" descritionBag="Leather Coach Bag" valueBag="$54.69" img={ImagemBag2} /></Link>
 
-      <ModelProductCard nameBag="Remus" descritionBag="Brown Strap Bag" valueBag="$57.00" img={ImagemBag3} />
+      <Link to="/Handbags/Remus"><ModelProductCard nameBag="Remus" descritionBag="Brown Strap Bag" valueBag="$57.00" img={ImagemBag3} /></Link>
 
-      <ModelProductCard nameBag="Boujee" descritionBag="Black Bag" valueBag="$56.49" img={ImagemBag4} />
+      <Link to="/Handbags/Boujee"><ModelProductCard nameBag="Boujee" descritionBag="Black Bag" valueBag="$56.49" img={ImagemBag4} /></Link>
     </ProductCardStyle>
     </>
   );
