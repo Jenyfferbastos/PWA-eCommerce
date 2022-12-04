@@ -32,7 +32,7 @@ export const HeaderStyle = styled.div`
       top: 50%;
       left: 85%;
       width:  ${px2vw(394)};
-      height:  ${px2vw(670)};
+      height: auto;
       transform: translate(-50%, -50%);
       background: #ffffff;
       padding:  ${px2vw(10)};
@@ -222,6 +222,7 @@ export const SearchStyle = styled.div`
 `;
 
 export const ButtonsDesktop = styled.div`
+
   ${mediaQueries.mobile} {
     display: none;
   }
@@ -230,6 +231,7 @@ export const ButtonsDesktop = styled.div`
       margin-right: 18px;
       background: none;
       border: none;
+      cursor: pointer;
     }
   }
 `;
