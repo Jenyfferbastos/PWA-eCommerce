@@ -21,6 +21,7 @@ import Download from '../../../assets/img/generalIconsImages/download.svg';
 import Edit from '../../../assets/img/generalIconsImages/edit.svg';
 import Ellipses from '../../../assets/img/generalIconsImages/ellipses.svg';
 import Filter from '../../../assets/img/generalIconsImages/filter.svg';
+import Grid from '../../../assets/img/generalIconsImages/grid.svg';
 import Location from '../../../assets/img/generalIconsImages/location.svg';
 import LocationWhite from '../../../assets/img/generalIconsImages/locationWhite.svg';
 import Logout from '../../../assets/img/generalIconsImages/logout.svg';
@@ -37,6 +38,7 @@ import Search from '../../../assets/img/generalIconsImages/search.svg';
 import SmallMinus from '../../../assets/img/generalIconsImages/small-minus.svg';
 import SmallPlus from '../../../assets/img/generalIconsImages/small-plus.svg';
 import Sort from '../../../assets/img/generalIconsImages/sort.svg';
+import SortNoSelected from '../../../assets/img/generalIconsImages/sortNoSelected.svg';
 import Star from '../../../assets/img/generalIconsImages/star.svg';
 import ViewSmilar from '../../../assets/img/generalIconsImages/view-smilar.svg';
 
@@ -65,6 +67,7 @@ export const generalIcons = {
   ['Edit']: Edit,
   ['Ellipses']: Ellipses,
   ['Filter']: Filter,
+  ['Grid']: Grid,
   ['Location']: Location,
   ['LocationWhite']: LocationWhite,
   ['Logout']: Logout,
@@ -81,6 +84,7 @@ export const generalIcons = {
   ['SmallMinus']: SmallMinus,
   ['SmallPlus']: SmallPlus,
   ['Sort']: Sort,
+  ['SortNoSelected']: SortNoSelected,
   ['Star']: Star,
   ['ViewSmilar']: ViewSmilar,
 }

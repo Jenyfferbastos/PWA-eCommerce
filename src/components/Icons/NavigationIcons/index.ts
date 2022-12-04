@@ -1,5 +1,6 @@
 import bagFillFalse from '../../../assets/img/navigationIconsImages/bag-fill-false.svg';
 import bagFillTrue from '../../../assets/img/navigationIconsImages/bag-fill-true.svg';
+import bagFillFalseWhite from '../../../assets/img/navigationIconsImages/bag-fill-false-white.svg';
 import categoriesFillFalse from '../../../assets/img/navigationIconsImages/categories-fill-false.svg';
 import categoriesFillTrue from '../../../assets/img/navigationIconsImages/categories-fill-true.svg';
 import homeFillFalse from '../../../assets/img/navigationIconsImages/home-fill-false.svg';
@@ -10,6 +11,7 @@ import wishlistFillTrue from  '../../../assets/img/navigationIconsImages/wishlis
 export const navigationIcons = {
   ['bagFillFalse']: bagFillFalse,
   ['bagFillTrue']: bagFillTrue,
+  ['bagFillFalseWhite']: bagFillFalseWhite,
   ['categoriesFillFalse']: categoriesFillFalse,
   ['categoriesFillTrue']: categoriesFillTrue,
   ['homeFillFalse']: homeFillFalse,
