@@ -1,4 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { Icons } from "../../components/Icons/Icons";
@@ -67,6 +70,11 @@ export function Checkout() {
 
   const handleSubmit = () => {
     handleCreateOrder({ ...orderData, userData });
+    const MySwal = withReactContent(Swal);
+
+    MySwal.fire({
+      title: <p>Order created successfully!</p>,
+    });
   };
 
   return (
