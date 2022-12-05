@@ -6,15 +6,17 @@ import { OrderSummary } from "../../components/OrderSummary/OrderSummary";
 import { MyCartsStyle } from "./MyCartsStyle";
 import { Cupom } from "../../components/Cupom/Cupom";
 import { CodeCheck } from "../../components/CodeCheck/CodeCheck";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Icons } from "../../components/Icons/Icons";
-import { OrderSummaryStyle } from "../../components/OrderSummary/OrderSummaryStyle";
 import { ButtonTrueBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonTrueBack";
 import { Link } from "react-router-dom";
 import { ButtonFalseBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonFalseBack";
+import { CartContext } from "../../context/Cart";
 
 export function MyCarts() {
   const [show, setShow] = useState(false);
+  const { cart } = useContext(CartContext);
+
   return (
     <MyCartsStyle>
       <Header />
@@ -29,34 +31,31 @@ export function MyCarts() {
       </div>
       <div className="cartContainer">
         <div>
-          <Products
-            image={imageBag2}
-            nameProduct={"Coach"}
-            descriptionProduct={"Leather Coach Bag"}
-            quantityProduct={"Qty- 1"}
-            priceProduct={"$54.69"}
-            quantityProductNumber={"1"}
-            subtotalProduct={"$54.69"}
-          />
-
-          <Products
-            image={imageBag2}
-            nameProduct={"Coach"}
-            descriptionProduct={"Leather Coach Bag"}
-            quantityProduct={"Qty- 1"}
-            priceProduct={"$54.69"}
-            quantityProductNumber={"1"}
-            subtotalProduct={"$54.69"}
-          />
+          {cart.products.map((product, index) => (
+            <Products
+              image={product.imgLink}
+              nameProduct={product.name}
+              descriptionProduct={product.description}
+              quantityProduct={`Qty- ${
+                product.quantity?.toString() ? product.quantity?.toString() : ""
+              }`}
+              priceProduct={product.pricingBefore.toString()}
+              quantityProductNumber={
+                product.quantity?.toString() ? product.quantity?.toString() : ""
+              }
+              subtotalProduct={product.pricingBefore.toString()}
+              key={index}
+            />
+          ))}
         </div>
         <div className="containerOrderSummary">
-            <OrderSummary />
-            <div className="buttons">
-              <Link to="/Checkout">
-                <ButtonTrueBack name={"Place Order"} icon={""} />
-              </Link>
-              <ButtonFalseBack name={"Continue Shopping"} icon={""} />
-            </div>
+          <OrderSummary title={"Order Summary"} />
+          <div className="buttons">
+            <Link to="/Checkout">
+              <ButtonTrueBack name={"Place Order"} icon={""} />
+            </Link>
+            <ButtonFalseBack name={"Continue Shopping"} icon={""} />
+          </div>
         </div>
       </div>
       <div className="couponCode">

@@ -13,15 +13,22 @@ import {
 } from "./HeaderStyle";
 import Logo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { VerticalCard } from "../VerticalCard/VerticalCard";
 import ImageBag2 from "../../assets/img/image-bag-2.png";
 import { RatingsAndStepper } from "../RatingsAndStepper/RatingsAndStepper";
 import { CodeCheck } from "../CodeCheck/CodeCheck";
 import { Button } from "../ButtonsAndChips/ButtonsAndChipsLarge/Button";
+import { CartContext } from "../../context/Cart";
 
 export function Header() {
   const [modal, setModal] = useState(false);
+  const { cart } = useContext(CartContext);
+  const [cartSubTotal] = useState(
+    cart.products.reduce((accumulator, product) => {
+      return accumulator + product.pricingBefore;
+    }, 0)
+  );
 
   const toggleModal = () => {
     setModal(!modal);
@@ -93,37 +100,40 @@ export function Header() {
               <Icons icon="Del" />
               Back
             </button>
-            <VerticalCard
-              imageProduct={ImageBag2}
-              nameProduct={"Coach"}
-              desciptionProduct={"Leather Coach Bag"}
-              valueProduct={"$54.69"}
-            />
-            <VerticalCard
-              imageProduct={ImageBag2}
-              nameProduct={"Coach"}
-              desciptionProduct={"Leather Coach Bag"}
-              valueProduct={"$54.69"}
-            />
-          <div className="orderDetails">
-            <div className="subtotal">
-              <p>Subtotal:</p>
-              <p>$109.38</p>
+            {cart.products.map((product, index) => (
+              <VerticalCard
+                imageProduct={product.imgLink}
+                nameProduct={product.name}
+                desciptionProduct={product.description}
+                valueProduct={product.pricingBefore.toString()}
+                key={index}
+              />
+            ))}
+
+            <div className="orderDetails">
+              <div className="subtotal">
+                <p>Subtotal:</p>
+                <p>${cartSubTotal}</p>
+              </div>
+              <div className="tax">
+                <p>Tax:</p>
+                <p>$2.00</p>
+              </div>
+              <div className="total">
+                <p>Total:</p>
+                <p>${Number(cartSubTotal + 2).toFixed(2)}</p>
+              </div>
             </div>
-            <div className="tax">
-              <p>Tax:</p>
-              <p>$2.00</p>
+
+            <div className="containerEndModal">
+              <CodeCheck placeholder={"Apply Coupon Code"} />
+              <Link to="/MyCarts">
+                <Button name={"Place Order"} icon={""} />
+              </Link>
+              <Link to="/*" className="linkContinueShopping">
+                Continue Shopping
+              </Link>
             </div>
-            <div className="total">
-              <p>Total:</p>
-              <p>$111.38</p>
-            </div>
-          </div>
-          <div className="containerEndModal">
-          <CodeCheck placeholder={"Apply Coupon Code"} />
-          <Link to='/MyCarts'><Button name={"Place Order"} icon={""} /></Link>
-          <Link to='/*' className="linkContinueShopping">Continue Shopping</Link>
-          </div>
           </div>
         </div>
       )}
