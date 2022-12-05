@@ -1,38 +1,42 @@
+## PWA E-commerce Front end
 
+![Logo](Logo.png)
+## Stack Used
 
-# Projeto PWA eCommerce
+- `Programming Language`: Typescript
+- `Libraries`: ReactJS and Styled-components
 
- Projeto PWA eCommerce da Sprint 7 do programa de bolsas da Compass. Para mobile e desktop!
+## API Used
 
-## Rodando localmente
+- `Purchase confirmation`: SweetAlert2
+## Deploy
 
-Clone o projeto
+Vercel
+
+```bash
+  https://pwa-e-commerce-bijq.vercel.app/
+```
+
+## Running locally
+
+Clone the project
 
 ```bash
   git clone https://github.com/Jenyfferbastos/PWA-eCommerce.git
 ```
 
-Entre no diretório do projeto
+Enter the project directory
 
 ```bash
   cd pwa-ecommerce
 ```
 
-Inicie o servidor
+Start the server
 
 ```bash
-  Abra o seu terminal e digite o comando npm run dev
+  Open your terminal and type the command npm run dev
 ```
-## Stack utilizada
 
-**Front-end:** React, TypeScript, Styled-components
-
-## Observações
-
-```bash
-  Para rolar horizontalmente clique shift e role a barra do mouse 
-  para a direção desejada
-```
 # Autor
 
 [<img src="https://avatars.githubusercontent.com/u/107883696?v=4" width=115><br><sub>Jenyffer Bastos Sacramento</sub>](https://github.com/Jenyfferbastos)
