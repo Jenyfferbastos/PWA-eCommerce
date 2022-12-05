@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { Icons } from "../../components/Icons/Icons";
@@ -12,11 +15,68 @@ import LogoPhonePe from "../../assets/img/PhonePe-Logo.wine 1.svg";
 import LogoPaytm from "../../assets/img/Paytm_Logo_(standalone) 1.svg";
 import { Link } from "react-router-dom";
 import { OrderSummary } from "../../components/OrderSummary/OrderSummary";
-import ImageBag2 from "../../assets/img/image-bag-2.png"
+import ImageBag2 from "../../assets/img/image-bag-2.png";
+import { UserData } from "../../interfaces/UserData";
+import { createOrder } from "../../services/createOrder";
+import { Order } from "../../interfaces/Order";
+import { CartContext } from "../../context/Cart";
 
 export function Checkout() {
   const [show, setShow] = useState(false);
+  const { cart } = useContext(CartContext);
+  const [userData, setUserData] = useState<UserData>();
+  const [orderValue] = useState(
+    cart.products
+      .reduce((accumulator, product) => {
+        return accumulator + product.pricingBefore;
+      }, 0)
+      .toFixed(2)
+  );
+  const [orderData, setOrderData] = useState<Order>({
+    products: cart.products,
+    orderValue,
+    quantity: 1,
+  });
   const [showSecondary, setShowSecondary] = useState(false);
+
+  const handleUserDataChange = ({
+    city,
+    name,
+    phone,
+    postalCode,
+    state,
+    street,
+    phoneArea,
+  }: Partial<UserData>) => {
+    setUserData({
+      ...userData,
+      city,
+      name,
+      phone,
+      postalCode,
+      state,
+      street,
+      phoneArea,
+    });
+  };
+
+  const handlePaymentChange = (paymentMethod: string) => {
+    setOrderData({ ...orderData, paymentMethod });
+  };
+
+  const handleCreateOrder = async (orderPayload: Order) => {
+    await createOrder(orderPayload);
+  };
+
+  const handleSubmit = () => {
+    handleCreateOrder({ ...orderData, userData });
+    const MySwal = withReactContent(Swal);
+
+    MySwal.fire({
+      title: <p>Order created successfully!</p>,
+    });
+  };
+
   return (
     <CheckoutStyle>
       <Header />
@@ -36,6 +96,12 @@ export function Checkout() {
                     placeholder="Enter Name"
                     type="text"
                     name="Name"
+                    onChange={(e) =>
+                      handleUserDataChange({
+                        ...userData,
+                        name: e.target.value,
+                      })
+                    }
                   />
                 </label>
                 <label>
@@ -46,12 +112,24 @@ export function Checkout() {
                       placeholder="+11"
                       type="text"
                       name="Number"
+                      onChange={(e) =>
+                        handleUserDataChange({
+                          ...userData,
+                          phoneArea: e.target.value,
+                        })
+                      }
                     />
                     <input
                       className="inputEnterNumber"
                       placeholder="Enter Number"
                       type="text"
                       name="Number"
+                      onChange={(e) =>
+                        handleUserDataChange({
+                          ...userData,
+                          phone: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </label>
@@ -63,6 +141,12 @@ export function Checkout() {
                     placeholder="Enter Address"
                     type="text"
                     name="Address"
+                    onChange={(e) =>
+                      handleUserDataChange({
+                        ...userData,
+                        street: e.target.value,
+                      })
+                    }
                   />
                 </label>
 
@@ -73,6 +157,12 @@ export function Checkout() {
                     placeholder="Enter State"
                     type="text"
                     name="State"
+                    onChange={(e) =>
+                      handleUserDataChange({
+                        ...userData,
+                        state: e.target.value,
+                      })
+                    }
                   />
                 </label>
 
@@ -83,6 +173,12 @@ export function Checkout() {
                     placeholder="Enter City"
                     type="text"
                     name="City"
+                    onChange={(e) =>
+                      handleUserDataChange({
+                        ...userData,
+                        city: e.target.value,
+                      })
+                    }
                   />
                 </label>
 
@@ -93,6 +189,12 @@ export function Checkout() {
                     placeholder="Enter Pin Code"
                     type="text"
                     name="PinCode"
+                    onChange={(e) =>
+                      handleUserDataChange({
+                        ...userData,
+                        postalCode: e.target.value,
+                      })
+                    }
                   />
                 </label>
               </form>
@@ -114,6 +216,7 @@ export function Checkout() {
                       className="inputUpiMthod"
                       type="radio"
                       name="selectMthod"
+                      onChange={() => handlePaymentChange("UPI")}
                     />{" "}
                     <div className="containerLogo">
                       <img className="image" src={LogoUpi} /> UPI
@@ -121,26 +224,39 @@ export function Checkout() {
                   </div>
 
                   <div className="cardMthod">
-                    <input type="radio" name="selectMthod" />
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Credit/Debit")}
+                    />
                     <div className="containerLogo">
                       {" "}
-                      <img className="imageCard" src={LogoCard} /> Credit/Debit Card
+                      <img className="imageCard" src={LogoCard} /> Credit/Debit
+                      Card
                     </div>
                   </div>
 
                   <div className="applePayMthod">
-                    <input type="radio" name="selectMthod" />{" "}
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Apple Pay")}
+                    />{" "}
                     <div className="containerLogo">
                       {" "}
-                      <img  className="image" src={LogoApple} /> Apple Pay
+                      <img className="image" src={LogoApple} /> Apple Pay
                     </div>
                   </div>
 
                   <div className="amazonPayMthod">
-                    <input type="radio" name="selectMthod" />
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Amazon Pay")}
+                    />
                     <div className="containerLogo">
                       {" "}
-                      <img  className="image" src={LogoAmazon} /> Amazon Pay
+                      <img className="image" src={LogoAmazon} /> Amazon Pay
                     </div>
                   </div>
                 </div>
@@ -154,7 +270,11 @@ export function Checkout() {
                       </div>
                       Google Pay
                     </div>
-                    <input type="radio" name="selectMthod" />{" "}
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Google Pay")}
+                    />{" "}
                   </div>
 
                   <div className="PhonePePayMthod">
@@ -165,7 +285,11 @@ export function Checkout() {
                       </div>
                       Phone Pe
                     </div>
-                    <input type="radio" name="selectMthod" />{" "}
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Phone Pe")}
+                    />{" "}
                   </div>
 
                   <div className="PaytmMthod">
@@ -176,14 +300,22 @@ export function Checkout() {
                       </div>
                       Paytm
                     </div>
-                    <input type="radio" name="selectMthod" />{" "}
+                    <input
+                      type="radio"
+                      name="selectMthod"
+                      onChange={() => handlePaymentChange("Paytm")}
+                    />{" "}
                   </div>
                 </div>
               </form>
             )}
             <div className="actionForm">
               <Link to="/MyCarts">Back to Cart</Link>
-              <button type="submit" className="buttonSubmitForm">
+              <button
+                type="submit"
+                className="buttonSubmitForm"
+                onClick={handleSubmit}
+              >
                 Next
               </button>
             </div>
@@ -191,27 +323,19 @@ export function Checkout() {
         </div>
         <div className="orderSummaryContainer">
           <h2 className="titleOrderSummary">Order Summary</h2>
-        <OrderSummaryProducts>
-          <div className="imageContainer">
-            <img src={ImageBag2} />
-          </div>
-          <div className="informationProduct">
-            <h2>Coach</h2>
-            <p>Leather Coach Bag</p>
-            <p>Qty- 1</p>
-          </div>
-        </OrderSummaryProducts>
-        <OrderSummaryProducts>
-          <div className="imageContainer">
-            <img src={ImageBag2} />
-          </div>
-          <div className="informationProduct">
-            <h2>Coach</h2>
-            <p>Leather Coach Bag</p>
-            <p>Qty- 1</p>
-          </div>
-        </OrderSummaryProducts>
-        <OrderSummary title={"Order Details"} />
+          {cart.products.map((product) => (
+            <OrderSummaryProducts>
+              <div className="imageContainer">
+                <img src={product.imgLink} />
+              </div>
+              <div className="informationProduct">
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
+                <p>Qty- {orderData.quantity}</p>
+              </div>
+            </OrderSummaryProducts>
+          ))}
+          <OrderSummary title={"Order Details"} />
         </div>
       </div>
       <Footer />
