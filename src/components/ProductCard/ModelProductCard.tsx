@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Icons } from "../Icons/Icons";
 import { ModelProductCardStyle, Flex, ImageBag } from "./ModelProductCardStyle";
 
@@ -9,6 +10,7 @@ export interface ModelProductCardProps{
 }
 
 export function ModelProductCard({nameBag, descritionBag, valueBag, img}: ModelProductCardProps) {
+
   
   return (
     <ModelProductCardStyle>
