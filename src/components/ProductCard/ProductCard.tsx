@@ -8,6 +8,7 @@ import { Product } from "../../interfaces/Products";
 import { listProducts } from "../../services/listProducts";
 import ImageBag1 from "../../assets/img/image-bag-1.png"
 import { Flex } from "./ModelProductCardStyle";
+import { Duo } from "../Assembly/Duo/Duo";
 
 export function ProductCard() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -93,6 +94,7 @@ export function ProductCard() {
               <button>10</button>
               </div>
              </div>
+              <Duo sizeDuoPrimary={'72vw'} sizeDuoSecondary={'14vw'} textDuoPrimary={"Add to Bag"} iconDuoPrimary={"bagFillFalseWhite"} iconDuoSecondary={"Placeholder"} />
             </div>
           </div>
         )
