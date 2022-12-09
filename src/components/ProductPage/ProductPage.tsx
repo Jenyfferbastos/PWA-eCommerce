@@ -1,4 +1,4 @@
-import { ButtonLarge } from "../Assembly/ButtonLarge/ButtonLarge";
+import { Single } from "../Assembly/Single/Single";
 import { ButtonMedium } from "../Assembly/ButtonMedium/ButtonMedium";
 import { Cupom } from "../Cupom/Cupom";
 import { Footer } from "../Footer/Footer";
@@ -70,7 +70,7 @@ export function ProductPage({
           <Cupom />
         </div>
         <div className="buttonsAdd">
-        <ButtonLarge icon={"bagFillFalseWhite"} label={"Add to bag"} />
+        <Single icon={"bagFillFalseWhite"} label={"Add to bag"} />
         <ButtonMedium icon={"wishlistFillFalse"} label={"Add To Wishlist"} />
         </div>
       </div>
