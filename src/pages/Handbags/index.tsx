@@ -4,15 +4,20 @@ import { Header } from "../../components/Header/Header";
 import { SelectCheckbox } from "../../components/SelectCheckbox/SelectCheckbox";
 
 import {
+  AppBar,
+  ContainerInputStyle,
   ContainerProductListing,
   HandbagsStyle,
   ProductListing,
+  Sort,
 } from "./Handbags";
 import { Footer } from "../../components/Footer/Footer";
 import { ListingOptions } from "../../components/ListingOptions/ListingOptions";
 import { useEffect, useState } from "react";
 import { Product } from "../../interfaces/Products";
 import { listProducts } from "../../services/listProducts";
+import { Icons } from "../../components/Icons/Icons";
+import { Link } from "react-router-dom";
 
 export function Handbags() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -20,6 +25,16 @@ export function Handbags() {
     const listProductsResult = await listProducts();
     setProducts(listProductsResult);
   };
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("activeModal");
+  } else {
+    document.body.classList.remove("activeModal");
+  }
 
   useEffect(() => {
     fetchProducts();
@@ -30,6 +45,15 @@ export function Handbags() {
       <Header />
       <BannerHandbags />
       <h1>Handbags</h1>
+
+      <AppBar>
+        {" "}
+        <Link to="/">
+          <Icons icon="ChevronLeft" />
+          <h1>Handbags</h1>
+        </Link>
+      </AppBar>
+
       <div className="containerMain">
         <div className="containerCheckbox">
           <SelectCheckbox
@@ -83,14 +107,14 @@ export function Handbags() {
             TextButton={"Discount"}
             Icon={"Plus"}
             Name={[
-              "Mais de 5% OFF",
-              "Mais de 10% OFF",
-              "Mais de 15% OFF",
-              "Mais de 20% OFF",
-              "Mais de 25% OFF",
-              "Mais de 30% OFF",
-              "Mais de 35% OFF",
-              "Mais de 40% OFF",
+              "More than 5% OFF",
+              "More than 10% OFF",
+              "More than 15% OFF",
+              "More than 20% OFF",
+              "More than 25% OFF",
+              "More than 30% OFF",
+              "More than 35% OFF",
+              "More than 40% OFF",
             ]}
           />
           <SelectCheckbox
@@ -117,6 +141,73 @@ export function Handbags() {
           </ProductListing>
         </ContainerProductListing>
       </div>
+      <Sort>
+        <button onClick={toggleModal}>
+          <Icons icon="Sort" />
+          SORT
+        </button>
+        <button>
+          <Icons icon="Filter" />
+          FILTER
+        </button>
+      </Sort>
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modalContent">
+            <form>
+              <legend>Sort By</legend>
+              <ContainerInputStyle>
+                <div className="input">
+                <input
+                  type="radio"
+                  id="LatestProducts"
+                  name="LatestProducts"
+                />
+                <label htmlFor="LatestProducts">Latest Products</label>
+                </div>
+
+                <div className="input">
+                <input
+                  type="radio"
+                  id="PriceLowtoHigh"
+                  name="PriceLowtoHigh"
+                />
+                <label htmlFor="PriceLowtoHigh">Price- Low to High</label>
+                </div>
+
+                <div className="input">
+                <input
+                  type="radio"
+                  id="PriceHightoLow"
+                  name="PriceHightoLow"
+                />
+                <label htmlFor="PriceHightoLow">Price- High to Low</label>
+                </div>
+
+                <div className="input">
+                <input
+                  type="radio"
+                  id="Popularity"
+                  name="Popularity"
+                />
+                <label htmlFor="Popularity">Popularity</label>
+                </div>
+
+                <div className="input">
+                <input
+                  type="radio"
+                  id="CustomerRatings"
+                  name="CustomerRatings"
+                />
+                <label htmlFor="CustomerRatings">Customer Ratings</label>
+                </div>
+
+              </ContainerInputStyle>
+            </form>
+          </div>
+        </div>
+      )}
       <Footer />
     </HandbagsStyle>
   );
