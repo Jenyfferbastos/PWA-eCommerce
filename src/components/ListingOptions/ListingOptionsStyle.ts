@@ -1,6 +1,10 @@
 import styled from "styled-components";
+import { mediaQueries } from "../../utils/mediaQueries";
 
 export const ListingOptionsStyle = styled.div`
+ ${mediaQueries.mobile} {
+  display: none;
+ }
   display: flex;
   justify-content: space-between;
   align-items: center;
