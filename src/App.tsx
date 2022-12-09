@@ -9,6 +9,7 @@ import { MyCarts } from "./pages/MyCarts/MyCarts";
 import { Header } from "./components/Header/Header";
 import { ProductRoute } from "./components/ProductRoute/ProductRoute";
 import { listProducts } from "./services/listProducts";
+import { Search } from "./components/Header/HeaderStyle";
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -44,6 +45,7 @@ export function App() {
         })}
         <Route path="/MyCarts" element={<MyCarts />} />
         <Route path="/Checkout" element={<Checkout />} />
+        <Route path="/Search" element={<Search />} />
       </Routes>
     </Router>
   );
