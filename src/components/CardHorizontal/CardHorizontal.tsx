@@ -1,7 +1,7 @@
 import React from "react";
 import { Icons } from "../Icons/Icons";
-import { Flex, ImageBag } from "../ProductCard/ModelProductCardStyle";
-import { CardHorizontalStyle, ValuesStyle } from "./CardHorizontalStyle";
+import { Flex } from "../ProductCard/ModelProductCardStyle";
+import { CardHorizontalStyle, ImageBag, ValuesStyle } from "./CardHorizontalStyle";
 
 export interface CardHorizontalProps {
   img: string;
