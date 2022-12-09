@@ -52,9 +52,11 @@ export function Header() {
         <button>
           <Icons icon={"AddToHomeScreen"} />
         </button>
+        <Link to='/Search'>
         <button>
           <Icons icon={"Search"} />
         </button>
+        </Link>
         <button>
           <Icons icon={"Notification"} />
         </button>
