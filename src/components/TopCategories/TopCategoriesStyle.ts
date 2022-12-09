@@ -13,6 +13,10 @@ export const TopCategoriesStyle = styled.div`
     ::-webkit-scrollbar {
       width: 0px;
     }
+    a{
+      text-decoration: none;
+      outline: none;
+    }
   }
   ${mediaQueries.desktop} {
     display: none;

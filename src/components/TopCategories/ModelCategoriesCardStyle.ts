@@ -12,6 +12,7 @@ export const ModelCategoriesCardStyle = styled.div`
 
     h2{
       font-size: ${px2vw(46)};
+      color: #171520;
     }
     img{
         background-color: #F4F4F4;
