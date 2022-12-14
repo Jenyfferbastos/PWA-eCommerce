@@ -10,6 +10,10 @@ import { Header } from "./components/Header/Header";
 import { ProductRoute } from "./components/ProductRoute/ProductRoute";
 import { listProducts } from "./services/listProducts";
 import { Search } from "./components/Header/HeaderStyle";
+import { SignUpAcess } from "./pages/Home/SignUpAcess/SignUpAcess";
+import { SignUpCreateAccount } from "./pages/SignUpCreateAccount/SignUpCreateAccount";
+import { SignUpValidation } from "./pages/Home/SignUpValidation/SignUpValidation";
+import { UserProfile } from "./pages/Home/UserProfile/UserProfile";
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,7 +29,11 @@ export function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<SignUpAcess />} />
+      <Route path="/SignUp" element={<SignUpCreateAccount />} />
+      <Route path="/SignUpValidation" element={<SignUpValidation />} />
+      <Route path="/UserProfile" element={<UserProfile />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/Handbags" element={<Handbags />} />
 
         {products.map((product, index) => {
