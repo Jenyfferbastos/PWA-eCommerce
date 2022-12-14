@@ -1,4 +1,4 @@
-import imageProfile from "../../../assets/img/prodile=picture.svg";
+import imageProfile from "../../assets/img/prodile=picture.svg";
 
 export function UserProfile() {
   return (
