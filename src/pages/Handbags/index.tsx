@@ -13,18 +13,13 @@ import {
 } from "./Handbags";
 import { Footer } from "../../components/Footer/Footer";
 import { ListingOptions } from "../../components/ListingOptions/ListingOptions";
-import { useEffect, useState } from "react";
-import { Product } from "../../interfaces/Products";
-import { listProducts } from "../../services/listProducts";
+import { useState } from "react";
 import { Icons } from "../../components/Icons/Icons";
 import { Link } from "react-router-dom";
+import { useProductsContext } from "../../context/useProductsContext";
 
 export function Handbags() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const fetchProducts = async () => {
-    const listProductsResult = await listProducts();
-    setProducts(listProductsResult);
-  };
+  const { products } = useProductsContext();
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -35,10 +30,6 @@ export function Handbags() {
   } else {
     document.body.classList.remove("activeModal");
   }
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
 
   return (
     <HandbagsStyle>
@@ -57,12 +48,12 @@ export function Handbags() {
       <div className="containerMain">
         <div className="containerCheckbox">
           <SelectCheckbox
-            TextButton={"Size"}
+            buttonTextValue={"Size"}
             Icon={"Plus"}
             Name={["S", "M", "L", "XL", "XXL", "3XL", "4XL", "5XL"]}
           />
           <SelectCheckbox
-            TextButton={"Color"}
+            buttonTextValue={"Color"}
             Icon={"Plus"}
             Name={[
               "Blue",
@@ -76,7 +67,7 @@ export function Handbags() {
             ]}
           />
           <SelectCheckbox
-            TextButton={"Brand"}
+            buttonTextValue={"Brand"}
             Icon={"Plus"}
             Name={[
               "Zara",
@@ -90,7 +81,7 @@ export function Handbags() {
             ]}
           />
           <SelectCheckbox
-            TextButton={"Price Range"}
+            buttonTextValue={"Price Range"}
             Icon={"Plus"}
             Name={[
               "$1 - $50",
@@ -104,7 +95,7 @@ export function Handbags() {
             ]}
           />
           <SelectCheckbox
-            TextButton={"Discount"}
+            buttonTextValue={"Discount"}
             Icon={"Plus"}
             Name={[
               "More than 5% OFF",
@@ -118,7 +109,7 @@ export function Handbags() {
             ]}
           />
           <SelectCheckbox
-            TextButton={"Availability"}
+            buttonTextValue={"Availability"}
             Icon={"Plus"}
             Name={["Small", "Medium", "Large", "Extra Large"]}
           />
@@ -159,50 +150,45 @@ export function Handbags() {
               <legend>Sort By</legend>
               <ContainerInputStyle>
                 <div className="input">
-                <input
-                  type="radio"
-                  id="LatestProducts"
-                  name="LatestProducts"
-                />
-                <label htmlFor="LatestProducts">Latest Products</label>
+                  <input
+                    type="radio"
+                    id="LatestProducts"
+                    name="LatestProducts"
+                  />
+                  <label htmlFor="LatestProducts">Latest Products</label>
                 </div>
 
                 <div className="input">
-                <input
-                  type="radio"
-                  id="PriceLowtoHigh"
-                  name="PriceLowtoHigh"
-                />
-                <label htmlFor="PriceLowtoHigh">Price- Low to High</label>
+                  <input
+                    type="radio"
+                    id="PriceLowtoHigh"
+                    name="PriceLowtoHigh"
+                  />
+                  <label htmlFor="PriceLowtoHigh">Price- Low to High</label>
                 </div>
 
                 <div className="input">
-                <input
-                  type="radio"
-                  id="PriceHightoLow"
-                  name="PriceHightoLow"
-                />
-                <label htmlFor="PriceHightoLow">Price- High to Low</label>
+                  <input
+                    type="radio"
+                    id="PriceHightoLow"
+                    name="PriceHightoLow"
+                  />
+                  <label htmlFor="PriceHightoLow">Price- High to Low</label>
                 </div>
 
                 <div className="input">
-                <input
-                  type="radio"
-                  id="Popularity"
-                  name="Popularity"
-                />
-                <label htmlFor="Popularity">Popularity</label>
+                  <input type="radio" id="Popularity" name="Popularity" />
+                  <label htmlFor="Popularity">Popularity</label>
                 </div>
 
                 <div className="input">
-                <input
-                  type="radio"
-                  id="CustomerRatings"
-                  name="CustomerRatings"
-                />
-                <label htmlFor="CustomerRatings">Customer Ratings</label>
+                  <input
+                    type="radio"
+                    id="CustomerRatings"
+                    name="CustomerRatings"
+                  />
+                  <label htmlFor="CustomerRatings">Customer Ratings</label>
                 </div>
-
               </ContainerInputStyle>
             </form>
           </div>

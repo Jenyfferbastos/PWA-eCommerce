@@ -15,7 +15,7 @@ const DEFAULT_VALUE = {
     products: [
       {
         categories: {
-          length: "20",
+          size: "M",
           color: "azul",
           brand: "Apple",
           pricingBefore: 39.33,

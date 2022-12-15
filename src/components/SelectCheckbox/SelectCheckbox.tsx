@@ -5,12 +5,12 @@ import { SelectCheckboxStyle } from "./SelectCheckboxStyle";
 
 export interface SelectCheckboxProps {
   Name: Array<string>;
-  TextButton: string;
+  buttonTextValue: string;
   Icon: string;
 }
 
 export function SelectCheckbox({
-  TextButton,
+  buttonTextValue,
   Icon,
   Name,
 }: SelectCheckboxProps) {
@@ -19,17 +19,41 @@ export function SelectCheckbox({
   return (
     <SelectCheckboxStyle>
       <button type="button" onClick={() => setShow(!show)}>
-        {TextButton} <Icons icon={Icon} />
+        {buttonTextValue} <Icons icon={Icon} />
       </button>
       {show && [
-        <RadioCheckbox Text={Name[0]} />,
-        <RadioCheckbox Text={Name[1]} />,
-        <RadioCheckbox Text={Name[2]} />,
-        <RadioCheckbox Text={Name[3]} />,
-        <RadioCheckbox Text={Name[4]} />,
-        <RadioCheckbox Text={Name[5]} />,
-        <RadioCheckbox Text={Name[6]} />,
-        <RadioCheckbox Text={Name[7]} />,
+        <RadioCheckbox
+          buttonLabel={Name[0]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[1]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[2]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[3]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[4]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[5]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[6]}
+          buttonTextValue={buttonTextValue}
+        />,
+        <RadioCheckbox
+          buttonLabel={Name[7]}
+          buttonTextValue={buttonTextValue}
+        />,
       ]}
     </SelectCheckboxStyle>
   );
