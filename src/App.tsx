@@ -10,10 +10,10 @@ import { Header } from "./components/Header/Header";
 import { ProductRoute } from "./components/ProductRoute/ProductRoute";
 import { listProducts } from "./services/listProducts";
 import { Search } from "./components/Header/HeaderStyle";
-import { SignUpAcess } from "./pages/Home/SignUpAcess/SignUpAcess";
+import { SignUpAcess } from "./pages/SignUpAcess/SignUpAcess";
 import { SignUpCreateAccount } from "./pages/SignUpCreateAccount/SignUpCreateAccount";
-import { SignUpValidation } from "./pages/Home/SignUpValidation/SignUpValidation";
-import { UserProfile } from "./pages/Home/UserProfile/UserProfile";
+import { SignUpValidation } from "./pages/SignUpValidation/SignUpValidation";
+import { UserProfile } from "./pages/UserProfile/UserProfile";
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
