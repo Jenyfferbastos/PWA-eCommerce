@@ -10,7 +10,9 @@ export interface ButtonMediumProps{
 export function ButtonMedium({icon, label}: ButtonMediumProps){
   return(
   <ButtonMediumStyle>
-    <button><Icons icon={icon} />{label}</button>
+    <button><Icons icon={icon} />
+    <label>{label}</label>
+    </button>
   </ButtonMediumStyle>
   )
 }
