@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 
 import { ModelProductCard } from "./ModelProductCard";
 import { ContainerNavStyle, ProductCardStyle } from "./ProductCardStyle";
@@ -46,7 +46,7 @@ export function ProductCard() {
                   nameBag={product.name}
                   descritionBag={product.description}
                   valueBag={`$${product.pricingBefore}`}
-                  img={product.imgLink}
+                  img={product.imgLink} key={index}
                 />
               </Link>
               <button onClick={toggleModal} className="btn-modal">

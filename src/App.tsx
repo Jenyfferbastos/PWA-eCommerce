@@ -6,7 +6,6 @@ import { Home } from "./pages/Home";
 import { MyCarts } from "./pages/MyCarts/MyCarts";
 import { Header } from "./components/Header/Header";
 import { ProductRoute } from "./components/ProductRoute/ProductRoute";
-import { listProducts } from "./services/listProducts";
 
 import { SignUpCreateAccount } from "./pages/SignUpCreateAccount/SignUpCreateAccount";
 
