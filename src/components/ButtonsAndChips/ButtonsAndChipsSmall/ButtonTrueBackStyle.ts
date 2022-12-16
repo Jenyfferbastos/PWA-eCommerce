@@ -16,6 +16,5 @@ export const ButtonTrueBackStyle = styled.button`
   color: #FFFFFF;
   border: none;
   margin-top: ${px2vw(16)};
-  margin-bottom: ${px2vw(12)};
   cursor: pointer;
 `;
