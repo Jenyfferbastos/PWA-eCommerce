@@ -89,7 +89,9 @@ export function Header() {
             <Icons icon={"wishlistFillFalse"} />
           </button>
           <button>
+            <Link to='/UserProfile'>
             <Icons icon={"Profile"} />
+            </Link>
           </button>
           <button onClick={toggleModal} className="btn-modal">
             <Icons icon={"bagFillFalse"} />
