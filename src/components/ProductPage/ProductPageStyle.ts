@@ -164,12 +164,17 @@ export const ProductPageStyle = styled.div`
       }
     }
     .ratings {
+      ${mediaQueries.desktop} {
+        display: none;
+      }
+      
+      ${mediaQueries.mobile} {
       margin: 5vw;
       display: grid;
       grid-template-columns: 1fr 3fr 0.5fr;
       gap: 4vw;
       align-items: center;
-
+      }
       .ratingsPill {
         display: flex;
         align-items: center;

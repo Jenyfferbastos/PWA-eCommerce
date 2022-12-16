@@ -143,6 +143,12 @@ width: 69vw;
 `;
 
 export const Sort = styled.div`
+
+${mediaQueries.desktop} {
+  display: none;
+}
+
+${mediaQueries.mobile}{
 display: flex;
 justify-content: space-between;
 width: 100vw;
@@ -162,6 +168,7 @@ button{
   color: #171520;
   font-size: 0.875rem;
   font-weight: 500;
+}
 }
 
 `;
