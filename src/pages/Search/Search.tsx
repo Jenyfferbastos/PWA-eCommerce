@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import "./style.css";
 
 export function Search() {
-  useEffect(() => console.log("funcionou"),[]);
   return (
     <>
       {" "}

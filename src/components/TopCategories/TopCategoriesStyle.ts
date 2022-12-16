@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { mediaQueries } from "../../utils/mediaQueries";
-
 export const TopCategoriesStyle = styled.div`
-  ${mediaQueries.mobile} {
+
+
+ ${mediaQueries.mobile} { 
     display: flex;
     align-items: center;
     width: 98vw;

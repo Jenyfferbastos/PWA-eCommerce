@@ -13,7 +13,6 @@ export function OrderSummary({ title }: OrderSummaryProps) {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    console.log(cart);
     setSubTotal(
       cart.reduce((accumulator, product) => {
         return accumulator + product.pricingBefore;

@@ -16,6 +16,7 @@ import CreditCard from '../../../assets/img/generalIconsImages/credit-card.svg';
 import CrossSmall from '../../../assets/img/generalIconsImages/cross-small.svg';
 import Del from '../../../assets/img/generalIconsImages/del.svg';
 import DeleteSmall from '../../../assets/img/generalIconsImages/delete-small.svg';
+import DeleteSmallRed from '../../../assets/img/generalIconsImages/delete-small-red.svg';
 import Delete from '../../../assets/img/generalIconsImages/delete.svg';
 import Download from '../../../assets/img/generalIconsImages/download.svg';
 import Edit from '../../../assets/img/generalIconsImages/edit.svg';
@@ -62,6 +63,7 @@ export const generalIcons = {
   ['CrossSmall']: CrossSmall,
   ['Del']: Del,
   ['DeleteSmall']: DeleteSmall,
+  ['DeleteSmallRed']: DeleteSmallRed,
   ['Delete']: Delete,
   ['Download']: Download,
   ['Edit']: Edit,
