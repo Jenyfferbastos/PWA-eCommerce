@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -16,24 +16,24 @@ import LogoPaytm from "../../assets/img/Paytm_Logo_(standalone) 1.svg";
 import { Link } from "react-router-dom";
 import { OrderSummary } from "../../components/OrderSummary/OrderSummary";
 import ImageBag2 from "../../assets/img/image-bag-2.png";
-import { UserData } from "../../interfaces/UserData";
+import { UserAddress } from "../../interfaces/UserAddress";
 import { createOrder } from "../../services/createOrder";
 import { Order } from "../../interfaces/Order";
-import { CartContext } from "../../context/Cart";
+import { userCartContext } from "../../context/useCartContext";
 
 export function Checkout() {
   const [show, setShow] = useState(false);
-  const { cart } = useContext(CartContext);
-  const [userData, setUserData] = useState<UserData>();
+  const { cart, setCart } = userCartContext();
+  const [userAddress, setUserAddress] = useState<UserAddress>();
   const [orderValue] = useState(
-    cart.products
+    cart
       .reduce((accumulator, product) => {
         return accumulator + product.pricingBefore;
       }, 0)
       .toFixed(2)
   );
   const [orderData, setOrderData] = useState<Order>({
-    products: cart.products,
+    products: cart,
     orderValue,
     quantity: 1,
   });
@@ -47,9 +47,9 @@ export function Checkout() {
     state,
     street,
     phoneArea,
-  }: Partial<UserData>) => {
-    setUserData({
-      ...userData,
+  }: Partial<UserAddress>) => {
+    setUserAddress({
+      ...userAddress,
       city,
       name,
       phone,
@@ -69,7 +69,8 @@ export function Checkout() {
   };
 
   const handleSubmit = () => {
-    handleCreateOrder({ ...orderData, userData });
+    handleCreateOrder({ ...orderData, userAddress });
+    setCart([]);
     const MySwal = withReactContent(Swal);
 
     MySwal.fire({
@@ -98,7 +99,7 @@ export function Checkout() {
                     name="Name"
                     onChange={(e) =>
                       handleUserDataChange({
-                        ...userData,
+                        ...userAddress,
                         name: e.target.value,
                       })
                     }
@@ -114,7 +115,7 @@ export function Checkout() {
                       name="Number"
                       onChange={(e) =>
                         handleUserDataChange({
-                          ...userData,
+                          ...userAddress,
                           phoneArea: e.target.value,
                         })
                       }
@@ -126,7 +127,7 @@ export function Checkout() {
                       name="Number"
                       onChange={(e) =>
                         handleUserDataChange({
-                          ...userData,
+                          ...userAddress,
                           phone: e.target.value,
                         })
                       }
@@ -143,7 +144,7 @@ export function Checkout() {
                     name="Address"
                     onChange={(e) =>
                       handleUserDataChange({
-                        ...userData,
+                        ...userAddress,
                         street: e.target.value,
                       })
                     }
@@ -159,7 +160,7 @@ export function Checkout() {
                     name="State"
                     onChange={(e) =>
                       handleUserDataChange({
-                        ...userData,
+                        ...userAddress,
                         state: e.target.value,
                       })
                     }
@@ -175,7 +176,7 @@ export function Checkout() {
                     name="City"
                     onChange={(e) =>
                       handleUserDataChange({
-                        ...userData,
+                        ...userAddress,
                         city: e.target.value,
                       })
                     }
@@ -191,7 +192,7 @@ export function Checkout() {
                     name="PinCode"
                     onChange={(e) =>
                       handleUserDataChange({
-                        ...userData,
+                        ...userAddress,
                         postalCode: e.target.value,
                       })
                     }
@@ -323,7 +324,7 @@ export function Checkout() {
         </div>
         <div className="orderSummaryContainer">
           <h2 className="titleOrderSummary">Order Summary</h2>
-          {cart.products.map((product) => (
+          {cart.map((product) => (
             <OrderSummaryProducts>
               <div className="imageContainer">
                 <img src={product.imgLink} />

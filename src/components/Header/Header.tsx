@@ -13,22 +13,26 @@ import {
 } from "./HeaderStyle";
 import Logo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { VerticalCard } from "../VerticalCard/VerticalCard";
 import ImageBag2 from "../../assets/img/image-bag-2.png";
 import { RatingsAndStepper } from "../RatingsAndStepper/RatingsAndStepper";
 import { CodeCheck } from "../CodeCheck/CodeCheck";
 import { Button } from "../ButtonsAndChips/ButtonsAndChipsLarge/Button";
-import { CartContext } from "../../context/Cart";
+import { userCartContext } from "../../context/useCartContext";
 
 export function Header() {
   const [modal, setModal] = useState(false);
-  const { cart } = useContext(CartContext);
-  const [cartSubTotal] = useState(
-    cart.products.reduce((accumulator, product) => {
-      return accumulator + product.pricingBefore;
-    }, 0)
-  );
+  const { cart } = userCartContext();
+  const [cartSubTotal, setSubTotal] = useState(0);
+
+  useEffect(() => {
+    setSubTotal(
+      cart.reduce((accumulator, product) => {
+        return accumulator + product.pricingBefore;
+      }, 0)
+    );
+  });
 
   const toggleModal = () => {
     setModal(!modal);
@@ -52,10 +56,10 @@ export function Header() {
         <button>
           <Icons icon={"AddToHomeScreen"} />
         </button>
-        <Link to='/Search'>
-        <button>
-          <Icons icon={"Search"} />
-        </button>
+        <Link to="/Search">
+          <button>
+            <Icons icon={"Search"} />
+          </button>
         </Link>
         <button>
           <Icons icon={"Notification"} />
@@ -104,7 +108,7 @@ export function Header() {
               <Icons icon="Del" />
               Back
             </button>
-            {cart.products.map((product, index) => (
+            {cart.map((product, index) => (
               <VerticalCard
                 imageProduct={product.imgLink}
                 nameProduct={product.name}
@@ -117,7 +121,7 @@ export function Header() {
             <div className="orderDetails">
               <div className="subtotal">
                 <p>Subtotal:</p>
-                <p>${cartSubTotal}</p>
+                <p>${cartSubTotal.toFixed(2)}</p>
               </div>
               <div className="tax">
                 <p>Tax:</p>

@@ -11,11 +11,11 @@ import { Icons } from "../../components/Icons/Icons";
 import { ButtonTrueBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonTrueBack";
 import { Link } from "react-router-dom";
 import { ButtonFalseBack } from "../../components/ButtonsAndChips/ButtonsAndChipsSmall/ButtonFalseBack";
-import { CartContext } from "../../context/Cart";
+import { userCartContext } from "../../context/useCartContext";
 
 export function MyCarts() {
   const [show, setShow] = useState(false);
-  const { cart } = useContext(CartContext);
+  const { cart } = userCartContext();
 
   return (
     <MyCartsStyle>
@@ -31,7 +31,7 @@ export function MyCarts() {
       </div>
       <div className="cartContainer">
         <div>
-          {cart.products.map((product, index) => (
+          {cart.map((product, index) => (
             <Products
               image={product.imgLink}
               nameProduct={product.name}

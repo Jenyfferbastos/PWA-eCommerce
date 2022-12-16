@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/Cart";
+import { useEffect, useState } from "react";
+import { userCartContext } from "../../context/useCartContext";
 import { OrderSummaryStyle } from "./OrderSummaryStyle";
 
 export interface OrderSummaryProps {
@@ -7,20 +7,33 @@ export interface OrderSummaryProps {
 }
 
 export function OrderSummary({ title }: OrderSummaryProps) {
-  const { cart } = useContext(CartContext);
-  const [cartSubTotal] = useState(
-    cart.products.reduce((accumulator, product) => {
-      return accumulator + product.pricingAfter;
-    }, 0)
+  const { cart } = userCartContext();
+  const [cartSubTotal, setSubTotal] = useState(0);
+  const [discounts, setDiscounts] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    console.log(cart);
+    setSubTotal(
+      cart.reduce((accumulator, product) => {
+        return accumulator + product.pricingBefore;
+      }, 0)
+    );
+  });
+
+  useEffect(() =>
+    setDiscounts(
+      cartSubTotal -
+        cart.reduce((accumulator, product) => {
+          return accumulator + product.pricingAfter;
+        }, 0)
+    )
   );
 
-  const [priceWithDiscount] = useState(
-    cart.products.reduce((accumulator, product) => {
-      return accumulator + product.pricingBefore;
-    }, 0)
-  );
-
-  const [total] = useState(cartSubTotal - priceWithDiscount + 2);
+  useEffect(() => {
+    const newTotal = cartSubTotal - discounts + 2;
+    setTotal(newTotal);
+  });
 
   return (
     <OrderSummaryStyle>
@@ -34,9 +47,7 @@ export function OrderSummary({ title }: OrderSummaryProps) {
         </div>
         <div className="containerPrice">
           <p className="text">${cartSubTotal + 2}</p>
-          <p className="text">
-            -${Number(cartSubTotal - priceWithDiscount).toFixed(2)}
-          </p>
+          <p className="text">-${Number(discounts).toFixed(2)}</p>
           <p className="text">-$0.00</p>
           <p className="textLarge">${total.toFixed(2)}</p>
         </div>

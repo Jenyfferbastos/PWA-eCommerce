@@ -92,7 +92,11 @@ export function ProductPage({
             <Cupom />
           </div>
           <div className="buttonsAdd">
-            <Single icon={"bagFillFalseWhite"} label={"Add to bag"} />
+            <Single
+              icon={"bagFillFalseWhite"}
+              label={"Add to bag"}
+              productName={productName}
+            />
             <ButtonMedium
               icon={"wishlistFillFalse"}
               label={"Add To Wishlist"}
@@ -102,7 +106,9 @@ export function ProductPage({
       </div>
       <ProductDescription>
         <div className="buttonsProductDescription">
-          <button onClick={() => setShow(!show)}>Product Description <Icons icon="ChevronBottom" /></button>
+          <button onClick={() => setShow(!show)}>
+            Product Description <Icons icon="ChevronBottom" />
+          </button>
           {show && (
             <p>
               Experience comfortable and easy travelling like never before with

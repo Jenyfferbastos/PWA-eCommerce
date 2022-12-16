@@ -1,10 +1,10 @@
 import { Product } from "./Products";
-import { UserData } from "./UserData";
+import { UserAddress } from "./UserAddress";
 
 export interface Order {
   quantity?: number;
   products?: Product[];
-  userData?: UserData;
+  userAddress?: UserAddress;
   paymentMethod?: string;
   orderValue?: string;
 }

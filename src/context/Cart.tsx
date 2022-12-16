@@ -1,41 +1,28 @@
-import React, { createContext } from "react";
+import React, { createContext, useCallback, useState } from "react";
 import { Product } from "../interfaces/Products";
 
-interface Cart {
-  products: Product[];
+export interface CartContext {
+  cart: Product[];
+  setCart(products: Product[]): void;
 }
 
-interface CartContext {
-  cart: Cart;
-  setCart: React.Dispatch<React.SetStateAction<Cart>>;
+interface ICartContextProps {
+  children: React.ReactNode;
 }
 
-const DEFAULT_VALUE = {
-  cart: {
-    products: [
-      {
-        categories: {
-          size: "M",
-          color: "azul",
-          brand: "Apple",
-          pricingBefore: 39.33,
-          pricingAfter: 78.66,
-          discount: 50,
-          rate: "5",
-        },
-        name: "Grande",
-        description: "Blossom Pouch",
-        pricingBefore: 39.33,
-        pricingAfter: 78.66,
-        discount: 50,
-        imgLink: "https://i.ibb.co/Gcybvgy/image-bag-1.png",
-        pathUrl: "/Handbags/Grande",
-        ratings: "122",
-        quantity: 1,
-      },
-    ],
-  },
-  setCart: () => [],
+export const CartContext = createContext<CartContext | null>(null);
+
+export const CartProvider: React.FC<ICartContextProps> = ({ children }) => {
+  const [cart, setCart] = useState<Product[]>([]);
+
+  // const setCartFn = useCallback((products: Product[]) => {
+  //   setCart([...cart, ...products]);
+  // }, []);
+
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      {" "}
+      {children}
+    </CartContext.Provider>
+  );
 };
-
-export const CartContext = createContext<CartContext>(DEFAULT_VALUE);
