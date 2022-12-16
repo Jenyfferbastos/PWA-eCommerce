@@ -64,7 +64,9 @@ export function Header() {
 
       <Navigation>
         <LogoStyle>
+          <Link to='/Home'>
           <img src={Logo} />
+          </Link>
         </LogoStyle>
 
         <LinkStyle>
