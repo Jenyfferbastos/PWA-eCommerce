@@ -1,60 +1,89 @@
 import styled from "styled-components";
+import { mediaQueries } from "../../utils/mediaQueries";
 
 export const SignUpStyle = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 30px;
-
-form{
+  ${mediaQueries.desktop} {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 70vh;
 
-h1{
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1B4B66;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
-.containerInput{
+${mediaQueries.mobile} {
   display: flex;
-  gap: 10px;
-}
-input{
-  background-color: #F1F1F1;
-  height: 8vh;
-  padding: 1vw;
-  border-radius: 4px;
-  border: none;
-}
-input::placeholder{
-  color: #626262;
-  font-size: 0.825rem;
-  font-weight: 500;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: 80vh;
+  margin-top: 20px;
+  margin-left: 4px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
-.inputCodDDI{
-width: 5vw;
-}
-.inputNumber{
-width: 18vw;
-}
-button{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px 120px;
-gap: 8px;
-position: absolute;
-width: 328px;
-height: 44px;
-background: #1B4B66;
-border-radius: 8px;
-border: none;
-color: #FFFFFF;
-font-weight: 600;
-}
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1b4b66;
+  }
+  .containerInput {
+    display: flex;
+    gap: 10px;
+  }
+  input {
+    background-color: #f1f1f1;
+    border: none;
+  }
+  input::placeholder {
+      color: #626262;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding-left: 0.5vw;
+    }
+
+  ${mediaQueries.desktop} {
+    input {
+      height: 8vh;
+      padding: 1vw;
+      border-radius: 4px;
+    }
+
+    .inputCodDDI {
+      width: 5vw;
+    }
+    .inputNumber {
+      width: 18vw;
+    }
+  }
+  ${mediaQueries.mobile} {
+    input {
+      height: 6vh;
+      padding: 2vw;
+      border-radius: 4px;
+    }
+    
+    .inputCodDDI {
+      width: 15vw;
+    }
+    .inputNumber {
+      width: 75vw;
+    }
+  }
+  p {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #626262;
+    margin-bottom: 50px;
+  }
 `;

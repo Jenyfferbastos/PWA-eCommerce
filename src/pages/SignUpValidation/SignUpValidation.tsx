@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import { Button } from "../../components/ButtonsAndChips/ButtonsAndChipsLarge/Button";
 import { SignUpValidationStyle } from "./SignUpValidationStyle";
 
 export function SignUpValidation() {
   return (
     <SignUpValidationStyle>
+      <div className="containerText">
       <h1>Enter OTP</h1>
       <p>A 4 digit code was sent to your number.</p>
+      </div>
       <form>
       <div className="containerInput">
         <input  className="inputNumberOne"
@@ -21,10 +24,11 @@ export function SignUpValidation() {
           placeholder="0"
           type="text"/>
       </div>
-     
+     <div className="navContainer">
       <p>Didn't recieve the code?</p>
       <a>Request again</a>
-      <Link to='/UserProfile'><button>Verify & Create Account</button></Link>
+      </div>
+      <Link to='/UserProfile'><Button name={"Verify & Create Account"} icon={""} /></Link>
       </form>
     </SignUpValidationStyle>
   );

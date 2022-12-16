@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Button } from "../../components/ButtonsAndChips/ButtonsAndChipsLarge/Button";
 import { SignUpStyle } from "./SignUpCreateAccountStyle";
 
 export function SignUpCreateAccount() {
@@ -19,7 +20,7 @@ export function SignUpCreateAccount() {
         />
         </div>
         <p>A 4 digit code will be sent to this number.</p>
-        <Link to='/SignUpValidation'><button>Next</button></Link>
+        <Link to='/SignUpValidation'><Button name={"Next"} icon={""} /></Link>
       </form>
     </SignUpStyle>
   );
